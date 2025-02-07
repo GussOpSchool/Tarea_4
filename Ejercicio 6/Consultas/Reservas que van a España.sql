@@ -1,5 +1,9 @@
 use `ejercicio 6`;
-SELECT v.idVuelo, r.idReserva, v.Destino as Llegada
+SELECT v.idVuelo, r.Pasagero_DNI, p.Nombre, v.Destino as Llegada
+FROM reserva r
+JOIN vuelo v ON r.Vuelo_idVuelo = v.idVuelo
+JOIN pasagero p ON r.Pasagero_DNI = p.DNI
+WHERE v.Destino = "Espana";
+SELECT Count(*) as `Vuelos que van a Espana`
 FROM vuelo v
-JOIN reserva r ON v.idVuelo = r.Vuelo_idVuelo
-WHERE v.Destino = 'Espana'
+WHERE v.Destino = "Espana"
